@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BBL-Analysis</title>
+    <!--<script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="templates/dist/style.css" type="text/css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="templates/dist/carousel.css" />
+    
+  </head>
+  <body style="background-image: #fff" class="mx-auto">
+    <div
+      class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent"
+    >
+      <div class="max-w-8xl mx-auto">
+        <div
+          class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0"
+        >
+          <div class="flex flex-row">
+            <div class="flex w-11/12 justify-center">
+              <h1
+                class="text-black font-extrabold text-3xl hover:animate-pulse 30s"
+              >
+                Biblometric Analysis of Text Simplification Research
+              </h1>
+            </div>
+            <div class="flex w-1/12 justify-center">
+              <a
+                href="https://github.com/Atharva-Phatak/BBL-TS"
+                target="_blank"
+                class="fa fa-github hover:scale-105 duration-200"
+                style="font-size: 40px; color: black"
+              ></a>
+              <a
+                href="https://datalab.science/"
+                class="fa fa-home fa-fw px-1 hover:scale-105 duration-200"
+                style="font-size: 40px; color: black"
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="p-4">
+      <div class="flex flex-row gap-2">
+        <div class="w-1/2 border-2 p-1">
+          <div class="flex flex-col font-bold">
+            <span class="text-black"
+              >This website is a supplement to the paper titled "Biblometric
+              Analysis to Text Simplification Research" and the aim of this
+              website is to :-</span
+            >
+            <div class="flex">
+              <ul class="text-black list-disc mx-5">
+                <li>Give access to interactive visualisations and Analysis</li>
+                <li>
+                  Serve as a supplement to the paper and provide better
+                  understanding about the obtained results.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="w-1/2 border-2 font-bold p-1">
+          <span class="text-black">Note</span>
+          <div class="flex">
+            <ul class="text-black list-disc mx-5">
+              <li>We recommend running website on Mozilla Firefox.</li>
+              <li>
+                This website is only me ant as a supplement to the results
+                mentioned in the paper. For other information about methodology
+                the reader should refer to the paper.
+              </li>
+              <li>
+                This website used d3js to render the interactive plots and some
+                plots may take time to load.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!--Research Question 1-->
+    <div id="bar-graph-render-q1" class="mb-20">
+      <div id="q1-tooltip" class="absolute bg-white text-black"></div>
+      <h5
+        class="p-4 inline-block mb-2 text-2xl font-extrabold tracking-tight text-black my-5 mx-1"
+      >
+        RQ1: How the domain of TS has evolved over years ?
+      </h5>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          The development of the TS field is monitored by the number of papers
+          published per year from 2012 to 2022 and these findings are
+          demonstrated in figure below.
+        </li>
+        <li>
+          Overall, the number of publications on TS shows an increasing trend
+          where the recent 2021 has been recorded as the year with the highest
+          number of publications which was around 65.
+        </li>
+        <li>
+          The development of the TS field is monitored by the number of papers
+          published per year from 2012 to 2022 and these findings are
+          demonstrated in figure below. There is significant progress in TS
+          during the years 2020 to 2021, where approximately 35 percent of the
+          total publications have happened during these last two years.
+        </li>
+        <li>
+          However, it is noteworthy that this upward tendency has been
+          interrupted by several drops in publication counts during 2015, 2017,
+          and 2019 compared to their preceding years. This can be attributed to
+          the fact that some conference occur in alternative years. The drop in 2022 can be attributed to the data being incomplete as number of publications could be under review at this point.
+        </li>
+        <li>
+          Among the popular years, 2016 is significant as the year with the
+          highest growth rate.
+        </li>
+        <li>
+          In conclusion, the total growth in the number of publications explains
+          that the field of text simplification has started to gain traction in
+          the research community.
+        </li>
+      </ul>
+      <div class="flex flex-col justify-center items-center">
+        <svg id="bar-graph-render-q1-svg"></svg>
+      </div>
+      <script type="text/javascript" src="https://d3js.org/d3.v4.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+      <script type="text/javascript" src="templates/jsFiles/bargraph-q1.js"></script>
+    </div>
+
+    <!--Research Question 2-->
+    <hr />
+    <div id="bar-graph-render" class="mb-20">
+      <div id="q2-tooltip" class="absolute bg-white text-black"></div>
+      <h5
+        class="p-4 inline-block mb-2 text-2xl font-extrabold tracking-tight text-black my-5 mx-1"
+      >
+        RQ2: Who contributes most to the research in the field of TS?
+      </h5>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          In this section, the publications are analyzed based on the engagement
+          of the authors in TS research.
+        </li>
+        <li>
+          The citation count was considered as the criteria for recognizing the
+          most influential authors
+        </li>
+        <li>
+          According to the findings, the ten authors are shown in the figure
+          below who are the most influential authors in the domain.
+        </li>
+        <li>
+          One can observe that the top most author has more than 80k citations
+          while most of the authors have citation counts between 20k-50k.
+        </li>
+        <li>
+          Moreover, by interacting with the figure one can observe that the
+          affiliations of authors are diverse and there are few authors who work
+          in Industry as well. This shows that people working in the field of TS
+          belong to both industry and academia.
+        </li>
+      </ul>
+      <div class="flex flex-col justify-center items-center">
+        <svg id="bar-graph-render-svg"></svg>
+      </div>
+      <script
+        type="text/javascript"
+        src="https://d3js.org/d3.v4.min.js"
+      ></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3-color@3"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3-interpolate@3"></script>
+      <script src="https://cdn.jsdelivr.net/npm/d3-scale-chromatic@3"></script>
+      <script type="text/javascript" src="templates/jsFiles/bargraph.js"></script>
+    </div>
+    <hr />
+    <!--World Map-->
+    <div id="world-map">
+      <div id="tooltip" class="absolute bg-white text-black"></div>
+      <h5
+        class="p-4 inline-block mb-2 text-2xl font-extrabold tracking-tight text-black my-5 mx-1"
+      >
+        RQ3: Which countries contribute most to the TS research?
+      </h5>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          The awareness of the country-wise contribution on the research context
+          is important for researchers to identify the locations where TS
+          research is prominent.
+        </li>
+        <li>
+          Under this research question, the country-wise influence on TS was
+          investigated by using the country of the first authors in
+          publications.
+        </li>
+        <li>
+          However, as GS does not provide this information, we have manually
+          extracted it from the authors’ affiliations of papers collected from
+          2012 to 2022.
+        </li>
+        <li>
+          Thevisualizes the country-wise contribution to TS publications through
+          a map, where the values are displayed using a color scale; the more
+          publications a country has, the darker the color is.
+        </li>
+        <li>
+          According to the findings, it is significant that the United States of
+          America is the prominent contributor which owns around 45 percent of
+          the total papers published by the top-five countries. More
+          importantly, many important countries are from Europe, where the
+          United Kingdom, Germany, France and Spain are the next four most
+          contributors.
+        </li>
+      </ul>
+      <div class="flex flex-col items-center justify-center">
+        <svg class="m-10" id="worldmap-svg"></svg>
+      </div>
+      <script src="https://d3js.org/d3.v4.js"></script>
+      <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+      <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+      <script type="module" src="templates/jsFiles/worldmap.js"></script>
+    </div>
+    <!--Collaboration Analysis-->
+    <hr />
+    <div id="graph-render-colab" class="mb-20">
+      <h5
+        class="inline-block mb-2 text-2xl font-extrabold tracking-tight text-black my-5 mx-1 p-4"
+      >
+        RQ4: What is the collaboration among researchers in the field of TS?
+      </h5>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          Collaboration analysis reveals how the research community in the field
+          of TS is collaborating.
+        </li>
+        <li>
+          Each node represents the author and edge denotes the connection
+          between them.
+        </li>
+        <li>
+          The graph below shows the overall collaboration between the authors
+          and their co-authors and also displays information about their
+          affiliations
+        </li>
+        <li>
+          If one interacts with the graph, one can observe that there are
+          diverse affiliations of authors and some authors also have industry
+          academia collaboration.
+        </li>
+      </ul>
+      <div class="flex items-center justify start">
+        <div id="colab-tooltip" class="absolute bg-white text-black"></div>
+        <svg id="graph-render-svg-colab"></svg>
+      </div>
+      <script src="https://d3js.org/d3.v4.js"></script>
+      <!--<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script> -->
+      <script type="text/javascript" src="templates/jsFiles/force.js"></script>
+    </div>
+
+    <!--Temporal Analysis-->
+    <hr />
+    <div id="graph-render-temp" class="mb-20">
+      <h5
+        class="inline-block mb-2 text-2xl font-extrabold tracking-tight text-black my-5 mx-1 p-4"
+      >
+        RQ5: How these collaborations have developed over time?
+      </h5>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          The evolution of the collaboration among the authors in the TS context
+          was recognized using a temporal analysis.
+        </li>
+        <li>
+          As one can observe from the plots below with time the number of nodes
+          and number of edges follow an increasing trend thus indicating a
+          greater collaboration with time.
+        </li>
+        <li>
+          We also collected the data about the most influential authors and
+          their affiliations for each year segment from <<2012-2017>> to
+          <<2016-2021>> which is shown in the plots below.
+        </li>
+        <li>
+          One can observe that initially academia dominated the research but
+          with time industry has started to catch up the research.
+        </li>
+      </ul>
+      <!--Carousel Code-->
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img
+            src="templates/data/temporal-analysis/plots/Year-2012.png"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img
+            src="templates/data/temporal-analysis/plots/Year-2013.png"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img
+            src="templates/data/temporal-analysis/plots/Year-2014.png"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img
+            src="templates/data/temporal-analysis/plots/Year-2015.png"
+            style="width: 100%"
+          />
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 5</div>
+          <img
+            src="templates/data/temporal-analysis/plots/Year-2016.png"
+            style="width: 100%"
+          />
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+      </div>
+      <br />
+
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+
+      <div class="flex flex-col items-center justify-center border-2">
+        <h4 class="font-bold text-black-500 my-10">Visualization Parameters</h4>
+        <div class="flex flex-row">
+          <div id="year-div" class="flex flex-col m-5 px-1">
+            <label
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold px-3"
+              >Select Years</label
+            >
+            <select id="year-select-temp" class="font-bold">
+              <option value="2012">2012-2017</option>
+              <option value="2013">2013-2018</option>
+              <option value="2014">2014-2019</option>
+              <option value="2015">2015-2020</option>
+              <option value="2016">2016-2021</option>
+            </select>
+          </div>
+
+          <div id="link-div" class="flex flex-col m-5">
+            <div
+              class="flex flex-row border-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-1"
+            >
+              <a href="https://github.com/d3/d3-force" class="px-2"
+                >Link Distance:
+              </a>
+              <output id="link-distance-temp" class="font-bold px-1">20</output>
+            </div>
+            <div id="link-input-temp">
+              <input
+                type="range"
+                min="20"
+                max="80"
+                value="20"
+                step="1"
+                id="link-slider-temp"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none hover:cursor-pointer hover:bg-blue-500"
+              />
+            </div>
+          </div>
+
+          <div id="charge-div-temp" class="flex flex-col m-5">
+            <div
+              class="flex flex-row border-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-1"
+            >
+              <a href="https://github.com/d3/d3-force" class="font-bold px-2"
+                >Charge Strength:
+              </a>
+              <output id="charge-strength-temp" class="font-bold px-1"
+                >0</output
+              >
+            </div>
+            <div id="charge-input-temp">
+              <input
+                type="range"
+                min="-5"
+                max="15"
+                value="0"
+                step="1"
+                id="charge-strength-slider-temp"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none hover:cursor-pointer hover:bg-blue-500"
+              />
+            </div>
+          </div>
+
+          <div id="radius-div-temp" class="flex flex-col m-5">
+            <div
+              class="flex flex-row border-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-1"
+            >
+              <a href="https://github.com/d3/d3-force" class="font-bold px-2"
+                >Collide Radius:
+              </a>
+              <output id="collide-radius-temp" class="font-bold">5</output>
+            </div>
+            <div id="radius-input-temp">
+              <input
+                type="range"
+                min="5"
+                max="50"
+                value="5"
+                step="1"
+                id="collide-radius-slider-temp"
+                class="w-full h-2 bg-gray-200 rounded-lg appearance-none hover:cursor-pointer hover:bg-blue-500"
+              />
+            </div>
+          </div>
+          <div id="colorScheme-div" class="flex flex-col m-5">
+            <a
+              href="https://github.com/d3/d3-scale-chromatic"
+              class="flex flex-row border-2 bg-blue-500 hover:bg-blue-700 text-white font-bold px-3"
+              >Select Color Scheme</a
+            >
+            <select id="color-select-temp">
+              <option value="Rainbow">Rainbow</option>
+              <option value="Sinebow">Sinebow</option>
+              <option value="Turbo">Turbo</option>
+              <option value="Viridis">Viridis</option>
+              <option value="Plasma">Plasma</option>
+              <option value="Cool">Cool</option>
+            </select>
+          </div>
+        </div>
+        <div
+          id="button-div-temp"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold my-4 px-4 rounded-full"
+        >
+          <button id="button" type="submit" onClick="refreshPage()">
+            Generate
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center justify start">
+        <div id="temporal-tooltip" class="absolute bg-white text-black"></div>
+        <svg id="graph-render-svg-temp"></svg>
+      </div>
+      <script src="https://d3js.org/d3.v4.js"></script>
+      <!--<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script> -->
+      <script type="text/javascript" src="templates/jsFiles/temporal.js"></script>
+      <script type="text/javascript" src="templates/jsFiles/carousel.js"></script>
+    </div>
+    <div class="mb-20">
+      <h5
+        class=" inline-block mb-2 text-2xl font-extrabold tracking-tight text-black my-5 mx-1 p-4"
+      >
+        RQ6: What are the trends of TS research ?
+      </h5>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          The word cloud below visualizes the results of word cloud analysis
+          conducted on the abstracts of publications.
+        </li>
+        <li>
+          This investigation revealed some important keywords about application
+          domains, such as “medical", “machine translation", “comprehension",
+          “linguistic", and “literacy".
+        </li>
+        <li>
+          This indicates that TS research has been applied in various domains
+          ranging from medical to computer science and literacy.
+        </li>
+      </ul>
+      <div class="flex flex-row justify-center mb-5">
+        <img src="templates/data/topic-modelling/wordcloud.png" class="w-1/2 text-center" />
+      </div>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          We also performed topic modelling using LDA to understand themes in
+          the field of TS.
+        </li>
+        <li>
+          The keywords and discovered themes are mentioned in the table below.
+          The major themes revolved around Text simplification applications in
+          Healthcare, Text Simplification metrics and Text Simplification
+          applications in NLP
+        </li>
+      </ul>
+      <!--Different Table-->
+      <div class="flex flex-col">
+        <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+            <div class="overflow-hidden">
+              <table class="min-w-full border-2">
+                <thead class="bg-white">
+                  <tr>
+                    <th
+                      scope="col"
+                      class="text-sm font-bold text-white px-6 py-4 bg-blue-500 text-center"
+                    >
+                      Keywords
+                    </th>
+                    <th
+                      scope="col"
+                      class="text-sm font-bold text-white px-6 py-4  bg-blue-500 text-center"
+                    >
+                      Theme
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                  >
+                    <td
+                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                    >
+                      Medical, Health, disabilities
+                    </td>
+                    <td
+                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                    >
+                      Text Simplification applications in Healthcare
+                    </td>
+                  </tr>
+                  <tr
+                    class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                  >
+                    <td
+                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                    >
+                      Simplicity, Grammaticality, semantic, accuracy
+                    </td>
+                    <td
+                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                    >
+                      Text Simplification metrics
+                    </td>
+                  </tr>
+                  <tr
+                    class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                  >
+                    <td
+                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                    >
+                      Translation, Summarization, generation, supervised
+                    </td>
+                    <td
+                      class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap text-center"
+                    >
+                      Text Simplifciation applications in NLP
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <div class="mb-5">
+      <h5
+        class=" inline-block mb-2 text-2xl font-extrabold tracking-tight text-black my-5 mx-1 p-4"
+      >
+        Limitations
+      </h5>
+      <ul class="text-black list-disc mx-5 text-justify p-4 mb-5">
+        <li>
+          The data collection souce implements truncation, that means the abstracts and sometimes even the authors of the papers are truncated.
+        </li>
+        <li>
+          While generating citation graphs for temporal analysis, we were not able collect the authors full names because some authors do not have a google scholar profile, which would have resulted in disconnected graphs.
+        </li>
+        <li>
+          The dataset size is too small hence there are less themes, but with an increase dataset collected from other sources like web-science we can get better results.
+        </li>
+
+    </div>
+
+    <div class="border-t bottom-0 z-40 w-full backdrop-blur flex-none">
+      <div class="max-w-8xl mx-auto">
+        <div class="py-4 border-b">
+          <div class="flex flex-col justify-center text-center">
+            <p class="text-black font-extrabold">DaTALab</p>
+            <div class="flex flex-row items-center justify-center">
+              <a
+                href="https://datalab.science/"
+                class="fa fa-home fa-fw p-1 hover:scale-105 duration-200"
+                style="font-size: 36px; color: black"
+              ></a>
+              <a
+                href="https://github.com/Atharva-Phatak/BBL-TS"
+                target="_blank"
+                class="fa fa-github p-1 hover:scale-105 duration-200"
+                style="font-size: 36px; color: black"
+              ></a>
+              <a
+                href="mailto:phataka@lakeheadu.ca"
+                class="fa fa-envelope p-1 hover:scale-105 duration-200"
+                style="font-size: 36px; color: black"
+              ></a>
+            </div>
+            <p class="font bold text-black">© Copyright DaTALab</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
